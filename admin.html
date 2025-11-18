@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RKM ADMIN</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo1.svg" class="mr-2"
+            alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+              data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Permintaan Review</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Perbaikan
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Feedback</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="images/faces/face28.jpg" alt="profile" />
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" href="login.html">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="admin.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#project" aria-expanded="false">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">Project</span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="project">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="admin/adminProject.html">Project Activity</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin/adminProjectSummary.html">Summary</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin/adminProjectMilestone.html">Milestone</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#atp" aria-expanded="false">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">ATP Checklist</span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="atp">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="admin/adminAtp.html">To Check</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin/adminAtpCheked.html">Checked</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#dokumentasi" aria-expanded="false">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Dokumentasi</span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="dokumentasi">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="admin/adminDokumATP.html">ATP</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin/adminDokumRKS.html">IKR</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+        </ul>
+      </nav>
+
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Welcome Admin</h3>
+                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
+                      class="text-primary">3 unread alerts!</span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card tale-bg">
+                <div class="card-people mt-auto">
+                  <img src="images/dashboard/people.png" alt="people">
+                  <div class="weather-info">
+                    <div class="d-flex">
+                      <div>
+                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                      </div>
+                      <div class="ml-2">
+                        <h4 class="location font-weight-normal">Jakarta</h4>
+                        <h6 class="font-weight-normal">Indonesia</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin transparent">
+              <div class="row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-tale">
+                    <div class="card-body">
+                      <p class="mb-4">Summary PO Project</p>
+                      <p class="fs-30 mb-2">1.123</p>
+                      <p>Active : 879 Close: 165</p>
+                      <p>Cancel : 879 Lock: 165</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-dark-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Summary TT Projects</p>
+                      <p class="fs-30 mb-2">1.147</p>
+                      <p>Active : 879 Close: 165</p>
+                      <p>Cancel : 879 Lock: 165</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                  <div class="card card-light-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Summary Complaint Handling Project</p>
+                      <p class="fs-30 mb-2">1.147</p>
+                      <p>Active : 879 Close: 165</p>
+                      <p>Cancel : 879 Lock: 165</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-light-danger">
+                    <div class="card-body">
+                      <p class="mb-4">Number of Clients</p>
+                      <p class="fs-30 mb-2">1.147</p>
+                      <p>Active : 879 Close: 165</p>
+                      <p>Cancel : 879 Lock: 165</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title">Master Table</p>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="table-responsive pt-3">
+                        <table class="table table-bordered">
+
+                          <thead>
+                            <tr>
+                              <th>Action</th>
+                              <th>HP PO</th>
+                              <th>Regional</th>
+                              <th>Nama Satuan</th>
+                              <th>PO NUMBER</th>
+                              <th>RPM</th>
+                              <th>PIC ADMIN</th>
+                              <th>Implementation Status</th>
+                              <th>Remarks</th>
+
+                              <!-- TERM 1 -->
+                              <th>Submitted Date</th>
+                              <th>BALAP</th>
+                              <th>COMMISSIONING TEST</th>
+                              <th>BAUT</th>
+                              <th>1. BAST</th>
+                              <th>2. APD</th>
+                              <th>3. Redline</th>
+                              <th>4. ABD.Pdf</th>
+                              <th>5. ABD.Kml</th>
+                              <th>6. BA Rekonsil (by UE)</th>
+                              <th>7. Akv (Berita Acara Kesep.)</th>
+                              <th>8. Data Punchlist / QC</th>
+
+                              <!-- TERM 2 -->
+                              <th>9. OTDR Pdf & SOR</th>
+                              <th>10. Core Management</th>
+                              <th>11. Doc ATP</th>
+                              <th>Photo OTB / KWH / Rack</th>
+                              <th>Photo Pole</th>
+                              <th>Photo ODC</th>
+                              <th>Photo ODP</th>
+                              <th>Photo OPM</th>
+                              <th>Status Documents</th>
+                              <th>Percentage Term 2</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+
+                            <!-- ROW 2 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>512</td>
+                              <td>JABAR</td>
+                              <td>Segment Cikampek</td>
+                              <td>PO.2025.07.00217</td>
+                              <td>Faazr</td>
+                              <td>April</td>
+                              <td>IKR Process</td>
+                              <td>17 Nov : still problem in internal RKM & BJB</td>
+
+                              <td>30-Jul-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td>Check</td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 3 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>512</td>
+                              <td>JABAR</td>
+                              <td>Segment Garut</td>
+                              <td>PO.2025.07.00165</td>
+                              <td>Ian</td>
+                              <td>Ayu</td>
+                              <td>IKR Process</td>
+                              <td>17 Nov : Today retake photo, plan submit 18/11/2025</td>
+
+                              <td>30-Jul-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 4 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>512</td>
+                              <td>JATENG</td>
+                              <td>Segment Tanjung</td>
+                              <td>PO.2025.08.00134</td>
+                              <td>Firdi/Putri</td>
+                              <td>Tata</td>
+                              <td>IKR Process</td>
+                              <td>17 Nov : Done Re-upload doc & send email to Persada</td>
+
+                              <td>17-Jul-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>OK</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td>OK</td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 5 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Dawuan</td>
+                              <td>PO.2025.08.00138</td>
+                              <td>Faazr</td>
+                              <td>Tata</td>
+                              <td>Survey & Permit</td>
+                              <td>17 Nov : Propose Cancel karena bentrok dengan Phatria</td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 6 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Purwakarta</td>
+                              <td>PO.2025.08.00141</td>
+                              <td>Afat</td>
+                              <td>Tata</td>
+                              <td>Survey & Permit</td>
+                              <td>17 Nov : Still Tagging Doc</td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 7 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Sadang</td>
+                              <td>PO.2025.08.00140</td>
+                              <td>Afat</td>
+                              <td>Tata</td>
+                              <td>Survey & Permit</td>
+                              <td>17 Nov : Still Progrhess Permit</td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 8 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Cikampek</td>
+                              <td>PO.2025.08.00148</td>
+                              <td>Faazr</td>
+                              <td>April</td>
+                              <td>Implementation Process</td>
+                              <td>17 Nov : still problem in internal RKM & BJB</td>
+
+                              <td>16-Oct-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 9 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Garut</td>
+                              <td>PO.2025.08.00150</td>
+                              <td>Ian</td>
+                              <td>Ayu</td>
+                              <td>Implementation</td>
+                              <td>17 Nov : Today retake photo, plan submit 21/11/2025</td>
+
+                              <td>16-Oct-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 10 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Plered</td>
+                              <td>PO.2025.08.00149</td>
+                              <td>Dery</td>
+                              <td>Sinta/Rara (Mitra)</td>
+                              <td>Implementation</td>
+                              <td>17 Nov : waiting share from area, photo ODP & ODC</td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 11 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Songgom</td>
+                              <td>PO.2025.08.00143</td>
+                              <td>Indra</td>
+                              <td>Putri</td>
+                              <td>Implementation</td>
+                              <td></td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 12 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Tanjung rasa</td>
+                              <td>PO.2025.08.00153</td>
+                              <td>Indra</td>
+                              <td>Firdi</td>
+                              <td>Laying Cable</td>
+                              <td></td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 13 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JABAR</td>
+                              <td>Bulakamba</td>
+                              <td>PO.2025.08.00145</td>
+                              <td>Ian</td>
+                              <td>Farhan (Mitra)</td>
+                              <td>Installation Pole</td>
+                              <td>17 Nov : Still progress ODC & ODP</td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 14 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JATENG</td>
+                              <td>Tanjung</td>
+                              <td>PO.2025.08.00149</td>
+                              <td>Indra</td>
+                              <td>Firdi/Putri</td>
+                              <td>Electrical Work</td>
+                              <td></td>
+
+                              <td>16-Oct-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 15 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JATIM</td>
+                              <td>Nganjuk</td>
+                              <td>PO.2025.08.00147</td>
+                              <td>Hamdani</td>
+                              <td>Farhan (Mitra)</td>
+                              <td>Survey & Permit</td>
+                              <td></td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 16 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JATIM</td>
+                              <td>Pasuruan</td>
+                              <td>PO.2025.08.00147</td>
+                              <td>Hamdani</td>
+                              <td>Farhan (Mitra)</td>
+                              <td>Survey & Permit</td>
+                              <td></td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                            <!-- ROW 17 -->
+                            <tr>
+                              <td><a href="adminProjectActivity.html" class="btn btn-info btn-sm"><i
+                                    class="ti-folder"></i></a></td>
+                              <td>5000</td>
+                              <td>JATIM</td>
+                              <td>Jombang</td>
+                              <td>PO.2025.08.00146</td>
+                              <td>Hamdani</td>
+                              <td>Farhan (Mitra)</td>
+                              <td>Implementation</td>
+                              <td></td>
+
+                              <td>01-Sep-25</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>On Progress</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>Not Started</td>
+                              <td>0%</td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025. <a
+                href="https://www.bootstrapdash.com/" target="_blank">Fayyaza Anakidanda</a>
+              All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
+                class="ti-heart text-danger ml-1"></i></span>
+          </div>
+
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="js/dataTables.select.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/dashboard.js"></script>
+  <script src="js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

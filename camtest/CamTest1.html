@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Cam + Capture with Template</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{display:flex;flex-direction:column;gap:12px;align-items:center;padding:18px}
+    .camera-wrap{position:relative;width:min(420px,90vw);background:#111;border-radius:8px;overflow:hidden}
+    video{width:100%;height:auto;display:block}
+    .overlay-img{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;object-fit:cover}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+    button,input[type=file]{padding:8px 12px;border-radius:6px;border:1px solid #ccc;background:white;cursor:pointer}
+    #result{max-width:90vw;border:1px solid #ddd;border-radius:6px}
+    .small{font-size:13px;color:#444}
+  </style>
+</head>
+<body>
+  <h2>Open Cam — Ambil Foto dengan Template (Tidak Disimpan ke DB)</h2>
+
+  <div class="camera-wrap">
+    <video id="video" autoplay playsinline></video>
+    <!-- Template overlay: bisa diganti pakai tombol 'Pilih Template' -->
+    <img id="templateOverlay" class="overlay-img" alt="template overlay" src="" style="display:none;" />
+  </div>
+
+  <div class="controls">
+    <button id="startBtn">Minta Akses Kamera</button>
+    <button id="switchBtn">Ganti Kamera (Depan/Belakang)</button>
+    <button id="captureBtn">Ambil Foto</button>
+    <a id="downloadBtn" style="display:none;" download="foto-template.png">Download Foto</a>
+    <label style="display:inline-block">
+      <input type="file" id="templateFile" accept="image/*" style="display:none">Pilih Template
+    </label>
+    <button id="clearTemplateBtn">Hapus Template</button>
+  </div>
+
+  <p class="small">Hasil capture akan muncul di bawah. Foto tidak diupload ke server — hanya disimpan/diunduh secara lokal jika kamu pilih.</p>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+  <img id="result" alt="hasil foto" />
+
+  <script>
+    const video = document.getElementById('video');
+    const startBtn = document.getElementById('startBtn');
+    const switchBtn = document.getElementById('switchBtn');
+    const captureBtn = document.getElementById('captureBtn');
+    const templateOverlay = document.getElementById('templateOverlay');
+    const templateFile = document.getElementById('templateFile');
+    const clearTemplateBtn = document.getElementById('clearTemplateBtn');
+    const canvas = document.getElementById('canvas');
+    const result = document.getElementById('result');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    let stream = null;
+    let usingFacingMode = 'user'; // 'user' atau 'environment'
+    let currentTemplateImage = null; // Image object
+
+    async function startCamera() {
+      stopCamera();
+      try {
+        const constraints = { video: { facingMode: usingFacingMode }, audio: false };
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = stream;
+        await video.play();
+      } catch (err) {
+        alert('Gagal mengakses kamera. Pastikan izin diberikan dan perangkat mendukung kamera.\n\n' + err.message);
+        console.error(err);
+      }
+    }
+
+    function stopCamera() {
+      if (stream) {
+        stream.getTracks().forEach(t => t.stop());
+        stream = null;
+      }
+    }
+
+    startBtn.addEventListener('click', () => startCamera());
+
+    switchBtn.addEventListener('click', async () => {
+      usingFacingMode = usingFacingMode === 'user' ? 'environment' : 'user';
+      await startCamera();
+    });
+
+    // Load template image (user-supplied)
+    templateFile.addEventListener('change', (ev) => {
+      const f = ev.target.files && ev.target.files[0];
+      if (!f) return;
+      const url = URL.createObjectURL(f);
+      templateOverlay.src = url;
+      templateOverlay.style.display = 'block';
+      const img = new Image();
+      img.onload = () => {
+        currentTemplateImage = img;
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    });
+
+    clearTemplateBtn.addEventListener('click', () => {
+      templateOverlay.src = '';
+      templateOverlay.style.display = 'none';
+      currentTemplateImage = null;
+      templateFile.value = '';
+    });
+
+    // Capture: draw video then template on top
+    captureBtn.addEventListener('click', () => {
+      if (!video || video.readyState < 2) { // HAVE_CURRENT_DATA
+        alert('Kamera belum siap. Tekan "Minta Akses Kamera" lalu tunggu video muncul.');
+        return;
+      }
+
+      // ukuran canvas sama dengan ukuran video sumber
+      const vw = video.videoWidth || video.clientWidth;
+      const vh = video.videoHeight || video.clientHeight;
+      if (!vw || !vh) {
+        alert('Gagal mendapatkan ukuran video. Coba muat ulang halaman.');
+        return;
+      }
+
+      canvas.width = vw;
+      canvas.height = vh;
+      const ctx = canvas.getContext('2d');
+
+      // jika ingin mirror untuk kamera depan, mirror horizontal (opsional)
+      if (usingFacingMode === 'user') {
+        // mirror agar hasil terasa seperti cermin
+        ctx.save();
+        ctx.translate(vw, 0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(video, 0, 0, vw, vh);
+        ctx.restore();
+      } else {
+        ctx.drawImage(video, 0, 0, vw, vh);
+      }
+
+      // gambar template jika ada. Pastikan template di-scale cover
+      if (currentTemplateImage) {
+        // drawImage(img, dx, dy, dWidth, dHeight)
+        ctx.drawImage(currentTemplateImage, 0, 0, vw, vh);
+      } else if (templateOverlay.src) {
+        // jika templateOverlay sudah diset tapi currentTemplateImage belum onload, gunakan element
+        try {
+          ctx.drawImage(templateOverlay, 0, 0, vw, vh);
+        } catch (e) {
+          console.warn('Template belum siap saat capture.');
+        }
+      }
+
+      const dataUrl = canvas.toDataURL('image/png');
+      result.src = dataUrl;
+      downloadBtn.href = dataUrl;
+      downloadBtn.style.display = 'inline-block';
+      downloadBtn.textContent = 'Download Foto (PNG)';
+    });
+
+    // Cleanup when leaving page
+    window.addEventListener('pagehide', stopCamera);
+    window.addEventListener('unload', stopCamera);
+
+    // OPTIONAL: contoh template default (SVG) yang diset sebagai overlay saat halaman dibuka
+    // Jika mau pakai template bawaan, uncomment baris berikut dan modifikasi SVG/PNG sesuai kebutuhan.
+    // const defaultSvg = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<?xml version="1.0" encoding="UTF-8"?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 750'><rect x='0' y='0' width='1000' height='750' fill='none'/><rect x='150' y='100' width='700' height='550' rx='24' ry='24' fill='none' stroke='white' stroke-width='18' opacity='0.9'/></svg>`);
+    // templateOverlay.src = defaultSvg; templateOverlay.style.display = 'block';
+
+    // Nota: tidak ada penyimpanan ke database. Semua operasi dijalankan di sisi klien (browser).
+  </script>
+</body>
+</html>

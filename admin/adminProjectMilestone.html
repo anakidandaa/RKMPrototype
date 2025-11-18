@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>RKM ADMIN</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="../images/logo1.svg" class="mr-2"
+                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../images/logo-mini.svg"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                                aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-toggle="dropdown">
+                            <i class="icon-bell mx-0"></i>
+                            <span class="count"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="ti-info-alt mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">Permintaan Review</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        Just now
+                                    </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-warning">
+                                        <i class="ti-settings mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        Perbaikan
+                                    </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-info">
+                                        <i class="ti-user mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">Feedback</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        2 days ago
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="../images/faces/face28.jpg" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                            aria-labelledby="profileDropdown">
+                            <a class="dropdown-item">
+                                <i class="ti-settings text-primary"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="login.html">
+                                <i class="ti-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="ti-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+                        <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
+                    </div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+                    </div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admin.html">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#project" aria-expanded="false">
+                            <i class="icon-bar-graph menu-icon"></i>
+                            <span class="menu-title">Project</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+
+                        <div class="collapse" id="project">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../admin/adminProject.html">Project
+                                        Activity</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                        href="../admin/adminProjectSummary.html">Summary</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                        href="../admin/adminProjectMilestone.html">Milestone</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#atp" aria-expanded="false">
+                            <i class="icon-columns menu-icon"></i>
+                            <span class="menu-title">ATP Checklist</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+
+                        <div class="collapse" id="atp">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../admin/adminAtp.html">To Check</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../admin/adminAtpCheked.html">Checked</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#dokumentasi" aria-expanded="false">
+                            <i class="icon-paper menu-icon"></i>
+                            <span class="menu-title">Dokumentasi</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+
+                        <div class="collapse" id="dokumentasi">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../admin/adminDokumATP.html">ATP</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../admin/adminDokumRKS.html">RKS</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </nav>
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Project Activity</h4>
+                                    <p class="card-description">Prototype table (manual data)</p>
+                                    <div class="table-responsive pt-3">
+                                        <!-- <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Action</th>
+                                                    <th>SO Number</th>
+                                                    <th>Site ID</th>
+                                                    <th>Site Name</th>
+                                                    <th>Customer Site ID</th>
+                                                    <th>Customer</th>
+                                                    <th>Product TBG</th>
+                                                    <th>Company</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00100880880011</td>
+                                                    <td>0110001003</td>
+                                                    <td>GEULANGGANG</td>
+                                                    <td>MRE001</td>
+                                                    <td>TELKOMSEL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. TOWER BERSAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300350800031</td>
+                                                    <td>0110352001</td>
+                                                    <td>IBS BANK ACEH</td>
+                                                    <td>SUM-AC-BNA-2244</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. TOWER BERSAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300474700031</td>
+                                                    <td>0102451009</td>
+                                                    <td>Jaja Tunong</td>
+                                                    <td>SUM-AC-SGI-2299</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. SOLUSINDO KREASI PRATAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300477000031</td>
+                                                    <td>0103341009</td>
+                                                    <td>Kantor Bupati Meureudu</td>
+                                                    <td>SUM-AC-MRN-2269</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. TOWER BERSAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300554600031</td>
+                                                    <td>0107711009</td>
+                                                    <td>TIJU SANGE</td>
+                                                    <td>SUM-AC-SGI-2300</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. TOWER BERSAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300900500031</td>
+                                                    <td>0102971009</td>
+                                                    <td>TRIPA</td>
+                                                    <td>SUM-AC-SKM-2388</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. TOWER BERSAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300900130031</td>
+                                                    <td>0100821009</td>
+                                                    <td>SC-MA2763E</td>
+                                                    <td>SUM-AC-SKM-2349</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. TOWER BERSAMA</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><button class="btn btn-info btn-sm"><i
+                                                                class="ti-folder"></i></button></td>
+                                                    <td>00300900120031</td>
+                                                    <td>0100881009</td>
+                                                    <td>SC-MA2752G</td>
+                                                    <td>SUM-AC-SKM-2369</td>
+                                                    <td>XL</td>
+                                                    <td>Colocation Macro</td>
+                                                    <td>PT. SOLUSINDO KREASI PRATAMA</td>
+                                                </tr>
+                                            </tbody>
+                                        </table> -->
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Action</th>
+                                                    <th>Activity</th>
+                                                    <th>Duration</th>
+                                                    <th>Start Plan</th>
+                                                    <th>Finish Plan</th>
+                                                    <th>Start Forecast</th>
+                                                    <th>Finish Forecast</th>
+                                                    <th>Start Actual</th>
+                                                    <th>Finish Actual</th>
+                                                    <th>Lead Time Actual</th>
+                                                    <th>Sub Activity Status</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                <!-- ROW 1 -->
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-folder"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-information"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-camera"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-alert"></i></button>
+                                                    </td>
+                                                    <td>STIP</td>
+                                                    <td>1</td>
+                                                    <td>10-Nov-2022</td>
+                                                    <td>11-Nov-2022</td>
+                                                    <td>10-Nov-2022</td>
+                                                    <td>11-Nov-2022</td>
+                                                    <td>10-Nov-2022</td>
+                                                    <td>10-Nov-2022</td>
+                                                    <td>0</td>
+                                                    <td>-</td>
+                                                </tr>
+
+                                                <!-- ROW 2 -->
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-folder"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-information-outline"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-document"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle"></i></button>
+                                                    </td>
+                                                    <td>Project Manager Assignment</td>
+                                                    <td>1</td>
+                                                    <td>12-Nov-2022</td>
+                                                    <td>13-Nov-2022</td>
+                                                    <td>12-Nov-2022</td>
+                                                    <td>30-Dec-2022</td>
+                                                    <td>11-Nov-2022</td>
+                                                    <td>30-Dec-2022</td>
+                                                    <td>49</td>
+                                                    <td>Project Manager Assignment Done</td>
+                                                </tr>
+
+                                                <!-- ROW 3 -->
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-camera"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-account"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-alert"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-document-outline"></i></button>
+                                                    </td>
+                                                    <td>SSR/TSSR/ESR</td>
+                                                    <td>2</td>
+                                                    <td>14-Nov-2022</td>
+                                                    <td>16-Nov-2022</td>
+                                                    <td>31-Dec-2022</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>31-Dec-2022</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>19</td>
+                                                    <td>SSR/TSSR/ESR Done</td>
+                                                </tr>
+
+                                                <!-- ROW 4 -->
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-camera"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-information-outline"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle-outline"></i></button>
+                                                    </td>
+                                                    <td>APD</td>
+                                                    <td>1</td>
+                                                    <td>17-Nov-2022</td>
+                                                    <td>18-Nov-2022</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>0</td>
+                                                    <td>APD Done</td>
+                                                </tr>
+
+                                                <!-- ROW 5 -->
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-truck"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-package-variant"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-check"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check"></i></button>
+                                                    </td>
+                                                    <td>Material Delivery</td>
+                                                    <td>14</td>
+                                                    <td>19-Nov-2022</td>
+                                                    <td>03-Dec-2022</td>
+                                                    <td>20-Jan-2023</td>
+                                                    <td>24-Jan-2023</td>
+                                                    <td>20-Jan-2023</td>
+                                                    <td>24-Jan-2023</td>
+                                                    <td>4</td>
+                                                    <td>Material Delivery Done</td>
+                                                </tr>
+
+                                                <!-- ROW 6 -->
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-home"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-database"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-information"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle"></i></button>
+                                                    </td>
+                                                    <td>Material On Site</td>
+                                                    <td>2</td>
+                                                    <td>04-Dec-2022</td>
+                                                    <td>06-Dec-2022</td>
+                                                    <td>25-Jan-2023</td>
+                                                    <td>30-Jan-2023</td>
+                                                    <td>25-Jan-2023</td>
+                                                    <td>30-Jan-2023</td>
+                                                    <td>5</td>
+                                                    <td>Material On Site Done</td>
+                                                </tr>
+
+                                                <!-- ROW 7 -->
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-tools"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-hammer-wrench"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-information-outline"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check"></i></button>
+                                                    </td>
+                                                    <td>FO & Civil Works</td>
+                                                    <td>15</td>
+                                                    <td>07-Dec-2022</td>
+                                                    <td>22-Dec-2022</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>0</td>
+                                                    <td>FO and Civil Works Done</td>
+                                                </tr>
+
+                                                <!-- ROW 8 -->
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-radar"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-access-point"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-alert-circle-outline"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle-outline"></i></button>
+                                                    </td>
+                                                    <td>OTDR</td>
+                                                    <td>2</td>
+                                                    <td>23-Dec-2022</td>
+                                                    <td>25-Dec-2022</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>31-Jan-2023</td>
+                                                    <td>0</td>
+                                                    <td>OTDR Installation Done</td>
+                                                </tr>
+
+                                                <!-- ROW 9 -->
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-signal"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-wifi"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-access-point-network"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check"></i></button>
+                                                    </td>
+                                                    <td>RFS</td>
+                                                    <td>1</td>
+                                                    <td>26-Dec-2022</td>
+                                                    <td>27-Dec-2022</td>
+                                                    <td>01-Feb-2023</td>
+                                                    <td>01-Feb-2023</td>
+                                                    <td>01-Feb-2023</td>
+                                                    <td>01-Feb-2023</td>
+                                                    <td>0</td>
+                                                    <td>RFS Done</td>
+                                                </tr>
+
+                                                <!-- ROW 10 -->
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-lan"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-connection"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-cog"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle"></i></button>
+                                                    </td>
+                                                    <td>Integration</td>
+                                                    <td>3</td>
+                                                    <td>26-Dec-2022</td>
+                                                    <td>31-Dec-2022</td>
+                                                    <td>02-Feb-2023</td>
+                                                    <td>29-Aug-2023</td>
+                                                    <td>02-Feb-2023</td>
+                                                    <td>29-Aug-2023</td>
+                                                    <td>208</td>
+                                                    <td>Integration Done</td>
+                                                </tr>
+
+                                                <!-- ROW 11 -->
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-account-hard-hat"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-worker"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-briefcase-check"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check"></i></button>
+                                                    </td>
+                                                    <td>ATP Contractor</td>
+                                                    <td>21</td>
+                                                    <td>28-Dec-2022</td>
+                                                    <td>04-Jan-2023</td>
+                                                    <td>02-Feb-2023</td>
+                                                    <td>21-May-2023</td>
+                                                    <td>02-Feb-2023</td>
+                                                    <td>21-May-2023</td>
+                                                    <td>108</td>
+                                                    <td>ATP Contractor Done</td>
+                                                </tr>
+
+                                                <!-- ROW 12 -->
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-account"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-worker"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-check-outline"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle"></i></button>
+                                                    </td>
+                                                    <td>ATP Operator</td>
+                                                    <td>7</td>
+                                                    <td>28-Dec-2022</td>
+                                                    <td>04-Jan-2023</td>
+                                                    <td>02-Feb-2023</td>
+                                                    <td>29-Aug-2023</td>
+                                                    <td>02-Feb-2023</td>
+                                                    <td>29-Aug-2023</td>
+                                                    <td>208</td>
+                                                    <td>ATP Operator Done</td>
+                                                </tr>
+
+                                                <!-- ROW 13 -->
+                                                <tr>
+                                                    <td>13</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-clipboard-list"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-clipboard-check"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-document-edit"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check-circle-outline"></i></button>
+                                                    </td>
+                                                    <td>BAST Contractor</td>
+                                                    <td>14</td>
+                                                    <td>05-Jan-2023</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>22-May-2023</td>
+                                                    <td>24-Sep-2023</td>
+                                                    <td>22-May-2023</td>
+                                                    <td>24-Sep-2023</td>
+                                                    <td>125</td>
+                                                    <td>BAST Done</td>
+                                                </tr>
+
+                                                <!-- ROW 14 -->
+                                                <tr>
+                                                    <td>14</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-account-search"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-find"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-file-document"></i></button>
+                                                        <button class="btn btn-info btn-sm"><i
+                                                                class="mdi mdi-check"></i></button>
+                                                    </td>
+                                                    <td>BAUK Operator</td>
+                                                    <td>14</td>
+                                                    <td>05-Jan-2023</td>
+                                                    <td>19-Jan-2023</td>
+                                                    <td>30-Aug-2023</td>
+                                                    <td>13-Sep-2023</td>
+                                                    <td>30-Aug-2023</td>
+                                                    <td>13-Sep-2023</td>
+                                                    <td>803</td>
+                                                    <td>BAUK Operator - RA Review</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="custom-accordion">
+
+                        <!-- Order Information -->
+                        <div class="card">
+                            <div class="card-header" data-toggle="collapse" data-target="#orderInfo">
+                                Order Information
+                            </div>
+                            <div id="orderInfo" class="collapse">
+                                <div class="card-body">
+
+                                    <!-- LEGEND -->
+                                    <div class="mb-4">
+                                        <span class="legend-box not-started"></span> Activity Not Yet Started
+                                        &nbsp;&nbsp;
+                                        <span class="legend-box in-progress"></span> Activity Already Started
+                                        &nbsp;&nbsp;
+                                        <span class="legend-box done"></span> Activity Already Done
+                                    </div>
+
+                                    <!-- MAIN FLOW -->
+                                    <div class="flow-container">
+                                        <div class="flow-item">STIP</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Project Manager Assignment</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Shelter Foundation & Installation</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Mechanical Electrical Installation</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Power Supply Connectivity</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">RFI</div>
+                                    </div>
+
+                                    <!-- BRANCHING FLOW -->
+                                    <div class="branch-container">
+                                        <div class="branch-left">
+                                            <div class="arrow">↳</div>
+                                            <div class="flow-item">BAUK Operator</div>
+                                        </div>
+
+                                        <div class="branch-right">
+                                            <div class="arrow">↳</div>
+                                            <div class="flow-item">ATP Contractor</div>
+                                            <div class="arrow">→</div>
+                                            <div class="flow-item">BAST Contractor</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Forecasting -->
+                        <div class="card">
+                            <div class="card-header" data-toggle="collapse" data-target="#forecasting">
+                                Forecasting
+                            </div>
+                            <div id="forecasting" class="collapse">
+                                <div class="card-body">
+
+                                    <!-- LEGEND -->
+                                    <div class="mb-4">
+                                        <span class="legend-box not-started"></span> Activity Not Yet Started
+                                        &nbsp;&nbsp;
+                                        <span class="legend-box in-progress"></span> Activity Already Started
+                                        &nbsp;&nbsp;
+                                        <span class="legend-box done"></span> Activity Already Done
+                                    </div>
+
+                                    <!-- MAIN FLOW -->
+                                    <div class="flow-container">
+                                        <div class="flow-item">STIP</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Project Manager Assignment</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Shelter Foundation & Installation</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Mechanical Electrical Installation</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Power Supply Connectivity</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">RFI</div>
+                                    </div>
+
+                                    <!-- BRANCHING FLOW -->
+                                    <div class="branch-container">
+                                        <div class="branch-left">
+                                            <div class="arrow">↳</div>
+                                            <div class="flow-item">BAUK Operator</div>
+                                        </div>
+
+                                        <div class="branch-right">
+                                            <div class="arrow">↳</div>
+                                            <div class="flow-item">ATP Contractor</div>
+                                            <div class="arrow">→</div>
+                                            <div class="flow-item">BAST Contractor</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Flow -->
+                        <div class="card">
+                            <div class="card-header" data-toggle="collapse" data-target="#activityFlow">
+                                Activity Flow
+                            </div>
+
+                            <div id="activityFlow" class="collapse">
+                                <div class="card-body">
+
+                                    <!-- LEGEND -->
+                                    <div class="mb-4">
+                                        <span class="legend-box not-started"></span> Activity Not Yet Started
+                                        &nbsp;&nbsp;
+                                        <span class="legend-box in-progress"></span> Activity Already Started
+                                        &nbsp;&nbsp;
+                                        <span class="legend-box done"></span> Activity Already Done
+                                    </div>
+
+                                    <!-- MAIN FLOW -->
+                                    <div class="flow-container">
+                                        <div class="flow-item">STIP</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Project Manager Assignment</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Shelter Foundation & Installation</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Mechanical Electrical Installation</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">Power Supply Connectivity</div>
+                                        <div class="arrow">→</div>
+
+                                        <div class="flow-item">RFI</div>
+                                    </div>
+
+                                    <!-- BRANCHING FLOW -->
+                                    <div class="branch-container">
+                                        <div class="branch-left">
+                                            <div class="arrow">↳</div>
+                                            <div class="flow-item">BAUK Operator</div>
+                                        </div>
+
+                                        <div class="branch-right">
+                                            <div class="arrow">↳</div>
+                                            <div class="flow-item">ATP Contractor</div>
+                                            <div class="arrow">→</div>
+                                            <div class="flow-item">BAST Contractor</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025. <a
+                                href="https://www.bootstrapdash.com/" target="_blank">Fayyaza Anakidanda</a>
+                            All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
+                            with <i class="ti-heart text-danger ml-1"></i></span>
+                    </div>
+
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="../vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../vendors/chart.js/Chart.min.js"></script>
+    <script src="../vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="../js/dataTables.select.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../js/off-canvas.js"></script>
+    <script src="../js/hoverable-collapse.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/Chart.roundedBarCharts.js"></script>
+    <!-- End custom js for this page-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        var pieChartCanvas = document.getElementById('pieChart').getContext('2d');
+
+        new Chart(pieChartCanvas, {
+            type: 'pie',
+            data: {
+                labels: ["Pink", "Blue", "Yellow"],
+                datasets: [{
+                    data: [30, 40, 30],
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.7)",
+                        "rgba(54, 162, 235, 0.7)",
+                        "rgba(255, 206, 86, 0.7)"
+                    ],
+                    borderColor: [
+                        "#ff6384",
+                        "#36a2eb",
+                        "#ffce56"
+                    ],
+                    borderWidth: 2
+                }]
+            }
+        });
+    </script>
+    <style>
+        /* Accordion styling mengikuti template */
+        .custom-accordion .card-header {
+            background: #3fa0da;
+            color: #fff;
+            cursor: pointer;
+            padding: 12px 20px;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .custom-accordion .card {
+            border: none;
+            background: transparent;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            flex-wrap: nowrap;
+        }
+
+        .flow-item {
+            background: #b7dff0;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 0 15px;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #777;
+        }
+
+        /* Branching layout */
+        .branch-container {
+            display: flex;
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        .branch-left,
+        .branch-right {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+
+        /* Legend colors */
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 8px;
+            border-radius: 4px;
+        }
+
+        .not-started {
+            background: #dcdcdc;
+        }
+
+        .in-progress {
+            background: #a8e4a0;
+        }
+
+        .done {
+            background: #b7dff0;
+        }
+    </style>
+
+</body>
+
+</html>
